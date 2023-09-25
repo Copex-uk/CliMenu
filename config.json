@@ -1,0 +1,28 @@
+{
+            "title": {
+                "label": "lazy command line menu",
+                "color": "magenta"
+            },
+            "items": [
+                {
+                    "label": "Check for updates",
+                    "command": "sudo apt update && sudo apt upgrade -y",
+                    "color": "red"
+                },
+                {
+                    "label": "Apt autoremove",
+                    "command": "sudo apt autoremove -y",
+                    "color": "cyan"
+                },
+                {
+                    "label": "Show curent directory",
+                    "command": "ls -lha",
+                    "color": "green"
+                },
+                {
+                    "label": "Quit",
+                    "command": "",
+                    "color": ""
+                }
+            ]
+        }
