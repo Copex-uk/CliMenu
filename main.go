@@ -17,7 +17,7 @@ type MenuItem struct {
     Label   string `json:"label"`
     Color   string `json:"color"`
     Command string `json:"command"` // New field for command
-    Fn      func()
+    //Fn      func()
 }
 
 // Menu represents the structure of the configuration file.
@@ -73,6 +73,7 @@ func main() {
     }
 
     if *createExample {
+
         createExampleMenu(*filePath)
         fmt.Println("Example config.json created.")
         return
@@ -115,11 +116,11 @@ func main() {
             time.Sleep(2 * time.Second)
             continue
         }
-
-        if option == len(menu.Items) {
-            quit = true
-            continue
-        }
+        // use last option as Quit - uncomment
+        //if option == len(menu.Items) {
+        //    quit = true
+        //    continue
+        //}
 
         idx := option - 1
         clearScreen()
@@ -132,6 +133,7 @@ func main() {
 }
 
 func createExampleMenu(filePath string) {
+
     exampleMenu := Menu{
         Title: struct {
             Label string `json:"label"`
@@ -168,13 +170,21 @@ func loadMenu(filePath string) (*Menu, error) {
 }
 
 func saveMenu(filePath string, menu Menu) error {
+
+fmt.Println(menu)    
+
     menuJSON, err := json.MarshalIndent(menu, "", "  ")
+
     if err != nil {
+       fmt.Println("Error marshaling menu to JSON:", err)
         return err
     }
+    fmt.Println("writing example config to "+filePath)
 
     err = ioutil.WriteFile(filePath, menuJSON, 0644)
+
     if err != nil {
+        fmt.Println("Error writeing file")
         return err
     }
 
