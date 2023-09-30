@@ -8,5 +8,6 @@ bulid the program with go the run with -help arg
 Code was wirten using ChatGTP v3 (with some human help)
 
 fixed an issue with the creation of the example config, 
-commented the the code to allow the last menu to quit 
+
+commented out the the code to allow the last menu to quit 
 the program when selecting the item number. 
